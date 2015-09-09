@@ -1,6 +1,6 @@
 ---
 Name: Master Arena
-Reference: MASTER
+Reference: MASTER_ARENA
 Author: Luis Garcia
 Description: >
             This is the master arena for the ethoscope.
