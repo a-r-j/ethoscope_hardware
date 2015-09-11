@@ -1,6 +1,6 @@
 ---
 Name: 20 Tubes Arena
-Reference: MASTER_ARENA
+Reference: 20_TUBES
 Author: Luis Garcia
 Description: >
             This is the master arena for the ethoscope.
