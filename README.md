@@ -1,4 +1,4 @@
-# ethoscope_hardware
+#Ethoscope Hardware#
 Hardware repo for Ethoscope (tracking system device for small animals)
 
 This repo is organized as follows:
