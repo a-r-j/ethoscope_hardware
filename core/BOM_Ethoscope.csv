@@ -1,4 +1,4 @@
-Piece,Quantity,Supplier,Production,RS stock number
+Piece,Quantity,Supplier,Production,Reference
 Light-base,1,Polygonal Tree,3d printed,
 Pi-case-lower,1,Polygonal Tree,3d printed,
 PI-case-upper,1,Polygonal Tree,3d printed,
@@ -7,10 +7,10 @@ Lateral walls,2,Hammar acrylic,laser cut,
 Rpi v2 B,1,CPC,,
 Noir camera,1,RS,,790-2811
 Ribon cable,1,RS,,693-7699
-IDC socket male 2x6,1,RS,,832-3496
-IDC socket female 2x6,1,RS,,823-6604
-IDC socket male 2x40,1,RS,,625-7303
-Cable USB A to micro,1,RS,,888-8811
+IDC socket male 2x6,1,RS,,RS 832-3496
+IDC socket female 2x6,1,RS,,RS 823-6604
+IDC socket male 2x40,1,RS,,RS 625-7303
+Cable USB A to micro,1,RS,,RS 888-8811
 M3 12mm bolt,4,ebay,,
 M3 10mm bolt,2,ebay,,
 M3 nuts,6,ebay,,http://www.ebay.co.uk/itm/A4-Marine-Grade-Stainless-Steel-Full-Nuts-M3-M4-M5-M6-M8-M10-M12-/181135033330?var=&hash=item2a2c7d43f2:m:mNQNbep6zOcVkOweGehWReQ
