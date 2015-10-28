@@ -1,5 +1,3 @@
-
-
 Piece,Quantity,Supplier,Production,RS stock number
 Light-base,1,Polygonal Tree,3d printed,
 Pi-case-lower,1,Polygonal Tree,3d printed,
@@ -10,11 +8,9 @@ Rpi v2 B,1,CPC,,
 Noir camera,1,farnell,,
 Ribon cable,1,RS,,693-7699
 IDC socket male 2x6,1,RS,,832-3496
-IDC socket female 2x6,1,RS,,823-6604
+IDC socket female 2x6,1,RS,,????
 IDC socket male 2x40,1,RS,,625-7303
-Anker 40w PSU,1,Amazon,,
-Cable USB A to micro,1,Amazon,,888-8811
-Arena ,1,Polygonal Tree,3d printed,
+Cable USB A to micro,1,RS,,888-8811
 M3 12mm bolt,4,ebay,,
 M3 10mm bolt,2,ebay,,
 M3 nuts,6,ebay,,
@@ -25,3 +21,4 @@ usb wifi Edimax EW-7811UN,1,amazon,,
 IR led 12v 3Led segment,1,Lightworld,,
 "~5cm, 1mm cable for light connection ",2,RS,,
 Double side tape for camera,1,Essentra components ,,
+Anker 40w PSU,1/6,Amazon,,
