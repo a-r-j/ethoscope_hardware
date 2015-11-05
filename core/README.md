@@ -25,11 +25,11 @@ So before we start, we should have something like:
 
 In addition, you will need several tools and consumables such as:
 
-* Allan keys
+* Allen keys
 * soldering iron
 * super glue
 * heat shrink
-* solder
+* solder wire (lead free).
 
 GPIO connector
 ----------------
