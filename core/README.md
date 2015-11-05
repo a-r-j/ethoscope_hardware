@@ -81,9 +81,6 @@ The steps to build the head are the following:
 
 ![Head steps](./img/head_steps.png)
 
-The finis head should look like this:
-
-![finished ethoscope](./img/finished_ethoscope.png)
 
 Last bits:
 Before you can start working, you will have to **change the focus of the camera**.
