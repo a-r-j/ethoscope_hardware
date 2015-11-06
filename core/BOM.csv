@@ -4,11 +4,11 @@ Upper Pi case,Head,1,Polygonal Tree/Custom made,https://github.com/PolygonalTree
 Raspberry Pi v2,Head,1,CPC,
 PiNoir camera,Head,1,RS,RS 790-2811
 32Gb SD card,Head,1,amazon,32G Samsung EVO SD card
-M3 12mm bolt,Head,6,ebay,
-M3 nuts,Head,4,ebay,http://www.ebay.co.uk/itm/A4-Marine-Grade-Stainless-Steel-Full-Nuts-M3-M4-M5-M6-M8-M10-M12-/181135033330?var=&hash=item2a2c7d43f2:m:mNQNbep6zOcVkOweGehWReQ
-M2 nuts (nylon),Head,2,ebay,
-M2 6mm bolts,Head,2,ebay,
-Wifi dongle,Head,1,amazon,Edimax EW-7811UN
+M3 12mm bolt,Head,6,RS,RS 232-8372
+M3 nuts,Head,4,RS,RS 560-293
+M2 nuts (nylon),Head,2,RS,RS 528-126
+M2 6mm bolts,Head,2,RS,RS 482-7685
+Wifi dongle,Head,1,Edimax,Edimax EW-7811UN
 Light box,Base,1,Polygonal Tree/Custom made,https://github.com/PolygonalTree/ethoscope_hardware/tree/master/core/light_box
 Light support,Base,1,Polygonal Tree/Custom made,https://github.com/PolygonalTree/ethoscope_hardware/tree/master/core/side_wall
 Male 2x6 IDC socket ,Base,1,RS,RS 832-3496
@@ -18,5 +18,5 @@ Side wall,Side Wall,2,Polygonal Tree/Custom made,https://github.com/PolygonalTre
 Ribbon cable (6 way; 21cm),GPIO connector,1,RS,RS 693-7699
 Female 2x6 IDC socket ,GPIO connector,1,RS,RS 823-6604
 Female 2x40 IDC socket,GPIO connector,1,RS,RS 625-7303
-USB A to micro cable,,1,RS,RS 888-8811
-Anker 40w PSU,,1,Amazon,
+USB A to micro cable,Power supply,1,RS,RS 888-8811
+Anker 40w PSU,Power supply,1,Amazon,
