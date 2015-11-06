@@ -2,12 +2,12 @@ Ethoscope core
 ==============
 
 This document describes the core of the ethoscope device.
-That is the device without arena or extra modules.
-The core of the device is made of three parts:
+The "core" referes to device without arena or extra modules.
+it is made of three mainparts:
 
-* the **head**, which holds the Raspebbery Pi an the camera.
-* the **base**, which diffuses light though different types of arenas (read about arenas [here](TODO)).
-* the **side walls**, which connect the base to the head.
+* the **head**, which contains the Raspebbery Pi and its camera.
+* the **base**, which diffuses light though different types of arenas (read about arenas [here](../arenas/README.md)).
+* the **side walls**, which simply connect the head to the base.
 
 An assembled core looks like this:
 
@@ -31,6 +31,7 @@ In addition, you will need several tools and consumables such as:
 * heat shrink
 * solder wire (lead free).
 
+
 GPIO connector
 ----------------
 
@@ -46,18 +47,18 @@ Base
 -----------------
 
 The base acts as an IR light box.
-The idea is to emit IR light down, so it can be reflected upward.
+The idea is to reflect IR light upward so it can go through the arena.
 
 
 In order to put the light together, a little bit of basic soldering is required:
 
 ![IR light soldering](./img/ir_light_soldering.png)
 
-The yellow dashed lined indicate where we need to solder.
+In the figure above, the yellow dashed lined indicate where we need to solder.
 
 You can also notice that **heat shrink** have been put around the wires so that we ensure proper insulation.
 
-After is has been soldered, the led strip must be passed **from the outside** to the inside, by the connector hole.
+After is has been soldered, the led strip must be passed **from the outside** to the inside of the light box by the connector hole.
 Then, we can stick the light to its support, and glue the support to the side of the base:
 
 ![base](./img/base.png)
@@ -85,6 +86,10 @@ The steps to build the head are the following:
 Last bits:
 Before you can start working, you will have to **change the focus of the camera**.
 I am afraid this has to be done manually. A very good explanation is available here(TODO).
+
+The wireless dongle blinks with blue light to indicate that it transmits data. 
+According to your expoerimental setup, you may want to blind the LED (e.g. with black tape) in order to prevent interference with the behaviour of your experimental animals.
+
 
 
 
