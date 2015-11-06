@@ -25,11 +25,11 @@ So before we start, we should have something like:
 
 In addition, you will need several tools and consumables such as:
 
-* Allan keys
+* Allen keys
 * soldering iron
 * super glue
 * heat shrink
-* solder
+* solder wire (lead free).
 
 GPIO connector
 ----------------
@@ -37,7 +37,7 @@ GPIO connector
 In order to power the infrared (IR) light, the General Purpose Input Output (GPIO) of the  Raspberry Pi is connected to the base by a ribbon cable.
 We can build a simple connector that looks like that:
 
-![GPIO](./img/gpio.png]
+![GPIO](./img/gpio.png)
 
 Here, we have used a **21cm long** 6 way ribbon cable.
 
@@ -79,11 +79,8 @@ The steps to build the head are the following:
 7. Now, we can **close the box** (sub-picture C, below) and screw the upper and lower parts together, using four M3 screws.
 8. The last thing we want to do is plugging the micro-usb power supply in the Pi.
 
-![Head steps](./img/head_steps)
+![Head steps](./img/head_steps.png)
 
-The finis head should look like this:
-
-![finished ethoscope](./img/finish_ethoscope.png)
 
 Last bits:
 Before you can start working, you will have to **change the focus of the camera**.
