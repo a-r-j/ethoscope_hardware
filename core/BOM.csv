@@ -16,7 +16,7 @@ Male 2x6 IDC socket ,Base,1,RS,RS 832-3496
 5cm cable,Base,2,RS,
 Side wall,Side Wall,2,Polygonal Tree/Custom made,https://github.com/PolygonalTree/ethoscope_hardware/tree/master/core/side_wall
 Ribbon cable (6 way; 21cm),GPIO connector,1,RS,RS 693-7699
-Female 2x6 IDC socket ,GPIO connector,1,RS,RS 823-6604
+Female 2x6 IDC socket ,GPIO connector,1,RS,RS 832-3648
 Female 2x40 IDC socket,GPIO connector,1,RS,RS 625-7303
 USB A to micro cable,Power supply,1,RS,RS 888-8811
 Anker 40w PSU,Power supply,1,Amazon,
