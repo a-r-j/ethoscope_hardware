@@ -1,7 +1,7 @@
 Piece,Part,Quantity,Supplier,Reference, Price
 Lower Pi case,Head,1,Polygonal Tree/Custom made,https://github.com/gilestrolab/ethoscope_hardware/tree/master/core/upper_pi_case, £1
 Upper Pi case,Head,1,Polygonal Tree/Custom made,https://github.com/gilestrolab/ethoscope_hardware/tree/master/core/lower_pi_case, £1
-Raspberry Pi v2,Head,1,CPC,£20
+Raspberry Pi v2,Head,1,CPC,,£20
 PiNoir camera,Head,1,RS,RS 790-2811, £12
 32Gb SD card,Head,1,amazon,32G Samsung EVO SD card, £8
 M3 12mm bolt,Head,6,RS,RS 232-8372,
