@@ -1,21 +1,18 @@
 Ethoscope Hardware
 ========================
 This is the hardware repository of the [ethoscope platform](http://gilestrolab.github.io/ethoscope).
-It contains 3d printable files and instructions that alltogether should be enough to build ethoscopes, arenas and modules.
-
-Hardware is developed and maintained on [Onshape](https://cad.onshape.com/documents?filter=team&teamId=562b938ce4b0462e71ca0169&column=modifiedAt&order=desc).
+It contains 3d printable files and instructions that altogether should be sufficient to build ethoscopes, arenas and modules.
 
 The software repository lives [here](https://github.com/gilestrolab/ethoscope)
-
 
 
 Organisation
 ==================
 This repo is organized as follows:
-There are  three main parts:
-  * **core** refers to the bare ethoscope.
-  * **arenas** are interchangeable support where experimental animals are tested
-  * **modules** are additional pieces of hardware adding functionalities to the ethoscopes.
+  1. There is a collection of folders for every part in the Ethoscope.
+  2. Inside each folder there is a README file explaining the function of the part and how to put all the parts together.
+  3. There is as well a folder for each sub-part.
+  4. Inside each terminal folder you can find the last version of the hardware with a README explaining its function in detail. 
+   
   
-
 
