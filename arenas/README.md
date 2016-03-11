@@ -19,8 +19,16 @@ namely, the sizes:
 The mini arenas have smaller surfaces and are optimises for HD video acquisition.
 The standard size is a good compromise between image surface and time resolution allowing users to perform real time tracking
 
+Adding new arenas
+--------------------------
 
- 
+When adding new arena. Please, provide:
+
+* A Readme with:
+    * A description (and and name, author, number of rois,...)
+    * A the link to an video preview of the arena (useful to build ROIs)
+* An stl file
+
 
 
 
