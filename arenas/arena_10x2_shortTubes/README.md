@@ -12,8 +12,6 @@ Description: >
 
 [Preview](arena_10x2_shortTubes.stl)
 
-[Video example](TODO)
-
 Manufacture
 -------------
 3d Printed in ABS/PLA/NYLON
