@@ -28,7 +28,7 @@ When adding new arena. Please, provide:
     * A description (and and name, author, number of rois,...)
     * A the link to an video preview of the arena (useful to build ROIs)
 * An stl file
-
+* A 1min mp4 video of the arena with animals. It can be done with `ffmpeg` (e.g. `ffmpeg -ss 00:01:00 -i input.mp4  -t 00:01:00  -c:v libx264 -preset veryslow -crf 26  arena_xxx_xxx.mp4`)
 
 
 
