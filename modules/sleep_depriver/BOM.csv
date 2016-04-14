@@ -1,1 +1,7 @@
 
+Piece,Part,Quantity,Supplier,Reference, Price
+USB A to micro cable,Power supply,1,RS,RS 888-8811,
+Anker 40w PSU,Power supply,1,Amazon,,£12
+Base,Base,1,3d printed,NA
+Lynx Motion,servo controler,1,,,
+9G micro servo,Servo,10,,,
