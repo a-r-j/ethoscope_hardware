@@ -1,70 +1,111 @@
-#include <SoftwareSerial.h> 
+/* Program using Adafruit TLC5947 to control up to 24 components with pwm.
+ *  Usage:
+ *  
+ * P CHANNEL DURATION(ms) [INTENSITY](0-1000)
+ * 
+ * CHANNEL is a componenet from 0 to 23.
+ * DURATION defines how long this compoenet is to be activated for (in ms)
+ * INTENSITY is the duty cycle of the PWM  (optional, from 0 to 1000)
+ * 
+ * example:
+ * P 2 1000
+ * P 0 1000 500
+*/
 
-// important: l66  do 
-// #define SERIALCOMMANDBUFFER 24 
-// to allow long commands to be parsed
+
+#include <SoftwareSerial.h> 
 #include <SerialCommand.h>
+#include <Adafruit_TLC5947.h>
 
 
 #define BAUD 115200
-#define N_MOTORS 14
-#define DEFAULT_POWER 1000
+#define N_OUTPUTS 24
 
-int timers[N_MOTORS] = {0};
-
-//unsigned int powers[N_MOTORS];
+// a set of timers measuring how long a given output should remain on for
+int timers[N_OUTPUTS] = {0};
+// stores the PWM of each output
+unsigned int pwms[N_OUTPUTS];
 
 unsigned long t0 = 0;
 unsigned long t1 = 0;
 
 SerialCommand SCmd;
 
+/* ======================== TLC 5947 defines ======================== */
+#define NUM_TLC5974 1
+
+#define MAX_PWM 4095   
+#define MIN_PWM 0   
+
+// Define Pinouts from Arduino to SPI pins on LED Driver Board
+#define TLC_DATA_PIN 4
+#define TLC_CLOCK_PIN 5
+#define TLC_LATCH_PIN   6
+//#define oe  -1  // set to -1 to not use the enable pin (its optional)
+
+Adafruit_TLC5947 tlc = Adafruit_TLC5947(NUM_TLC5974, 
+                                        TLC_CLOCK_PIN,
+                                        TLC_DATA_PIN,
+                                        TLC_LATCH_PIN);
+
+
 void setup() {
   Serial.begin(BAUD);
-  for (unsigned int i = 0; i != N_MOTORS; ++i){
-    pinMode(i, OUTPUT);
+  SCmd.addCommand("P",sendPWMSerial);  
+  SCmd.addCommand("H",help);  
+  //SCmd.setDefaultHandler(help);  
+  
+  tlc.begin();
+  
+  for (unsigned int i = 0; i != N_OUTPUTS; ++i){
+    pwms[i] = 0;
+    timers[i] = 0;
+    tlc.setPWM(i,0);
   }
-  SCmd.addCommand("M",moveMotorSerial); //      
+  tlc.write();
 }
 
+void help(){
+  Serial.println("P CHANNEL DURATION(ms) [INTENSITY](0-1000)");
+  }
 void loop() { 
-    SCmd.readSerial(); 
-    for (unsigned int i = 0; i != N_MOTORS; ++i){
-     if(timers[i] > 0){
-      digitalWrite(i,HIGH);
-     }
-     else{
-      digitalWrite(i,LOW);
-     }  
-    }
-
+  SCmd.readSerial(); 
   delay(50);
-  
   t0 = t1;
   t1 = millis();
   
   //fixme overflow of time!
   // i.e. if t0 > t1
   unsigned int tick =  t1 - t0;
+
   
-  for (unsigned int i = 0; i != N_MOTORS; ++i){
-     timers[i] -= tick;
-     if(timers[i] <0)
-      timers[i] = 0;
+  for (unsigned int i = 0; i != N_OUTPUTS; ++i){
+    if(timers[i] != 0){
+       timers[i] -= tick;
+       if(timers[i] <0){
+        timers[i] = 0;
+        tlc.setPWM(i,MIN_PWM);
+        tlc.write();
+      }
     }
+  }
 }
 
 
-void moveMotor(unsigned int idx, unsigned int duration){
+void sendPWM(unsigned int idx, unsigned int duration, unsigned int duty_cycle = MAX_PWM){
   timers[idx] = duration; // in ms
-  
+  tlc.setPWM(idx,duty_cycle);
+  tlc.write();
 }
 
-void moveMotorSerial(){
+void sendPWMSerial(){
   char *arg;
   arg = SCmd.next();  
   unsigned int motor_id = 0;
   unsigned int duration = 0;
+  unsigned int duty_cycle = MAX_PWM;
+  unsigned int power = 0;
+  
   if (arg != NULL) 
     motor_id = atoi(arg) ;
   else
@@ -75,6 +116,12 @@ void moveMotorSerial(){
     duration = atoi(arg) ;
   else
     return;
-  moveMotor(motor_id, duration);
+  
+  arg = SCmd.next();   
+  if (arg != NULL){
+    power = atoi(arg);
+    duty_cycle = ((uint32_t)  power * (uint32_t) MAX_PWM)/1000;;
+  }
+  sendPWM(motor_id, duration, duty_cycle);
   }
 
