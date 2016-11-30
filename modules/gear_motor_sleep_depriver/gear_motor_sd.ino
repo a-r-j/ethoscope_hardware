@@ -31,7 +31,7 @@ unsigned long t1 = 0;
 
 SerialCommand SCmd;
 
-/* ======================== TLC 5947 defines ======================== */
+/* ======================== TLC 5947 ======================== */
 #define NUM_TLC5974 1
 
 #define MAX_PWM 4095   
@@ -48,11 +48,22 @@ Adafruit_TLC5947 tlc = Adafruit_TLC5947(NUM_TLC5974,
                                         TLC_DATA_PIN,
                                         TLC_LATCH_PIN);
 
+/* ======================== Push button======================== */
+
+#define PUSH_BUTTON_PIN 3
+// how long (in ms) the push buton should be hold for before demo is run
+#define PUSH_BUTTON_THR 2000
+// a timer that records how long push button is pressed for
+int push_button_timer = 0; 
+
+
+
 
 void setup() {
   Serial.begin(BAUD);
   SCmd.addCommand("P",sendPWMSerial);  
-  SCmd.addCommand("H",help);  
+  SCmd.addCommand("D",demo);  
+  SCmd.addCommand("H",help);
   //SCmd.setDefaultHandler(help);  
   
   tlc.begin();
@@ -63,6 +74,8 @@ void setup() {
     tlc.setPWM(i,0);
   }
   tlc.write();
+
+  pinMode(PUSH_BUTTON_PIN, INPUT);
 }
 
 void help(){
@@ -78,7 +91,6 @@ void loop() {
   // i.e. if t0 > t1
   unsigned int tick =  t1 - t0;
 
-  
   for (unsigned int i = 0; i != N_OUTPUTS; ++i){
     if(timers[i] != 0){
        timers[i] -= tick;
@@ -89,6 +101,16 @@ void loop() {
       }
     }
   }
+  if(digitalRead(PUSH_BUTTON_PIN) == LOW)
+    push_button_timer = 0;
+    
+  else{
+    push_button_timer += tick;
+      if(push_button_timer > PUSH_BUTTON_THR){
+        demo();
+        push_button_timer = 0;
+      }
+  }
 }
 
 
@@ -96,6 +118,14 @@ void sendPWM(unsigned int idx, unsigned int duration, unsigned int duty_cycle = 
   timers[idx] = duration; // in ms
   tlc.setPWM(idx,duty_cycle);
   tlc.write();
+}
+
+void demo(){
+  for (unsigned int i = 0; i != N_OUTPUTS; ++i){
+    tlc.setPWM(i,MAX_PWM);
+    delay(500);
+    tlc.setPWM(i,MIN_PWM);
+  }
 }
 
 void sendPWMSerial(){
