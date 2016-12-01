@@ -38,8 +38,8 @@ SerialCommand SCmd;
 #define MIN_PWM 0   
 
 // Define Pinouts from Arduino to SPI pins on LED Driver Board
-#define TLC_DATA_PIN 4
-#define TLC_CLOCK_PIN 5
+#define TLC_DATA_PIN 3
+#define TLC_CLOCK_PIN 4
 #define TLC_LATCH_PIN   6
 //#define oe  -1  // set to -1 to not use the enable pin (its optional)
 
@@ -50,7 +50,7 @@ Adafruit_TLC5947 tlc = Adafruit_TLC5947(NUM_TLC5974,
 
 /* ======================== Push button======================== */
 
-#define PUSH_BUTTON_PIN 3
+#define PUSH_BUTTON_PIN 5
 // how long (in ms) the push buton should be hold for before demo is run
 #define PUSH_BUTTON_THR 2000
 // a timer that records how long push button is pressed for
@@ -101,15 +101,15 @@ void loop() {
       }
     }
   }
-  if(digitalRead(PUSH_BUTTON_PIN) == LOW)
+  if(digitalRead(PUSH_BUTTON_PIN) == LOW){
+    if(push_button_timer > PUSH_BUTTON_THR)
+        demo();
     push_button_timer = 0;
+  }
     
   else{
     push_button_timer += tick;
-      if(push_button_timer > PUSH_BUTTON_THR){
-        demo();
-        push_button_timer = 0;
-      }
+      
   }
 }
 
@@ -123,8 +123,10 @@ void sendPWM(unsigned int idx, unsigned int duration, unsigned int duty_cycle = 
 void demo(){
   for (unsigned int i = 0; i != N_OUTPUTS; ++i){
     tlc.setPWM(i,MAX_PWM);
+    tlc.write();
     delay(500);
     tlc.setPWM(i,MIN_PWM);
+    tlc.write();
   }
 }
 
